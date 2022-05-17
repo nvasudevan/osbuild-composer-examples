@@ -2,6 +2,8 @@
 
 ## Create image from blueprint
 
+For details on blueprint reference, see [here](https://www.osbuild.org/guides/blueprint-reference/blueprint-reference.html)
+
 - to save the blueprint [example blueprint](see https://github.com/nvasudevan/osbuild-composer-examples/blob/main/blueprints/composer-f36.toml):
 ```
 sudo composer-cli blueprints push <blueprint toml>
