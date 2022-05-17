@@ -16,6 +16,13 @@ version = "*"
 [[packages]]
 name = "nginx"
 version = "*"
+# rpmfusion-free repo
+[[packages]]
+name = "faad2-libs"
+version = "*"
+[[packages]]
+name = "librtmp"
+version = "*"
 
 #[customizations.kernel]
 #append = "nosmt=force"
