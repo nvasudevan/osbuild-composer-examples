@@ -56,6 +56,21 @@ sudo qemu-kvm --name test-vm -m 1024 -hda <qcow2 image file>
 sudo qemu-kvm --name test-vm -m 1024 -drive format=raw,file=<vhd file>
 ```
 
+## Thirdparty repos support
+
+To add packages from thirdparty repos such as rpmfusion-free, follow 
+instructions from [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/composing_a_customized_rhel_system_image/index#image-builder-default-system-repositories_managing-repositories)
+
+For e.g., for fedora 36, using `sudo`:
+```
+mkdir -p /etc/osbuild-composer/repositories
+cp /usr/share/osbuild-composer/repositories/fedora-36.json /etc/osbuild-composer/repositories/fedora-36.json
+```
+Modify the `x86_64` block to add an entry for `rpmfusion-free`.
+Then copy the metalink and gpg keys from `/etc/yum.repos.d/rpmfusion-free.repo`.
+The gpg key has to be entered as one line, use the other entries in the 
+fedora-36.json file as reference.
+
 ## Other useful commands
 
 - to check what types are supported:
