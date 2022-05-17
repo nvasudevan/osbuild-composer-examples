@@ -1,0 +1,68 @@
+name = "composer-f36"
+description = "base image with tools"
+version = "0.0.5"
+modules = []
+distro = "fedora-36"
+
+[[packages]]
+name = "openssh"
+version = "*"
+[[packages]]
+name = "tmux"
+version = "*"
+[[packages]]
+name = "screen"
+version = "*"
+[[packages]]
+name = "nginx"
+version = "*"
+
+#[customizations.kernel]
+#append = "nosmt=force"
+
+[[customizations.group]]
+name = "apps"
+gid = 2001
+
+[[customizations.user]]
+name = "composer"
+description = "composer user account"
+password = "$6$hTPy2zNSvZ8pYE2V$7.095nnmHb5kcaRFJlwbrLv/59ISWYzHFfu0H8GO3NbffQvkVOVuO/K2XGBPXr5GppFY2V9dTpwIyC6gj92Di0"
+key = "<pub key>"
+home = "/home/composer/"
+shell = "/usr/bin/bash"
+groups = ["users", "wheel"]
+uid = 2101
+
+[[customizations.user]]
+name = "appusr"
+description = "apps user account"
+password = "$6$Salx9OLdO9wOnZUO$aPqk9p4IK5rAsJ67eKiPqf8Js2HVSvlG9kOQpbhn5HgcwnkC9pT8oGSDzBRQi.cxjuJgbh99zCiHqrOdI3qIR."
+key = "<pub key>"
+home = "/home/apps/"
+shell = "/usr/bin/bash"
+groups = ["users", "apps"]
+uid = 2102
+
+[customizations.locale]
+languages = ["en_GB.UTF-8"]
+keyboard = "gb"
+
+# for disto's that use firewall
+#[customizations.firewall]
+#ports = ["22:tcp", "80:tcp", "imap:tcp", "53:tcp", "53:udp"]
+
+[customizations.firewall.services]
+enabled = ["ftp", "http", "https"]
+disabled = ["telnet"]
+
+[customizations.services]
+enabled = ["sshd", "nginx"]
+
+#[[customizations.filesystem]]
+#mountpoint = "/home"
+#size = 2147483648
+
+[customizations]
+hostname = "composer01"
+
