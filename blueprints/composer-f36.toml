@@ -27,7 +27,7 @@ gid = 2001
 [[customizations.user]]
 name = "composer"
 description = "composer user account"
-password = "$6$hTPy2zNSvZ8pYE2V$7.095nnmHb5kcaRFJlwbrLv/59ISWYzHFfu0H8GO3NbffQvkVOVuO/K2XGBPXr5GppFY2V9dTpwIyC6gj92Di0"
+password = "<encrypted password>"
 key = "<pub key>"
 home = "/home/composer/"
 shell = "/usr/bin/bash"
@@ -37,7 +37,7 @@ uid = 2101
 [[customizations.user]]
 name = "appusr"
 description = "apps user account"
-password = "$6$Salx9OLdO9wOnZUO$aPqk9p4IK5rAsJ67eKiPqf8Js2HVSvlG9kOQpbhn5HgcwnkC9pT8oGSDzBRQi.cxjuJgbh99zCiHqrOdI3qIR."
+password = "<encrypted password>"
 key = "<pub key>"
 home = "/home/apps/"
 shell = "/usr/bin/bash"
@@ -52,6 +52,7 @@ keyboard = "gb"
 #[customizations.firewall]
 #ports = ["22:tcp", "80:tcp", "imap:tcp", "53:tcp", "53:udp"]
 
+# for distro's that use firewalld
 [customizations.firewall.services]
 enabled = ["ftp", "http", "https"]
 disabled = ["telnet"]
